@@ -117,4 +117,21 @@ Ruby делает это возможным, позволяя последнем
 Вы привыкните к этому сейчас. Напишите для меня три метода - calculate, add и sustract. Тесты следует пройти все. Посмотрите на подсказку если у вас есть проблемы! И как небольшая подсказка: запомните то, что вы можете использовать something.is_a?(Hash) или another_thing.is_a?(String) чтобы проверить тип объекта.
 
 	
+	def add(*numbers)
+  	  numbers.inject(0) {|sum, number| sum + number }
+	end
+
+	def subtract(*numbers)
+  	  first_number = numbers.shift
+	  numbers.inject(first_number) {|result, number| result - number }
+	end
+
+	def calculate(*args)
+
+	  options = args.last.is_a?(Hash) ? args.delete(args.last) : {}
+	  options[:add] = true if options.empty?
+	  return add(*args) if options[:add]
+	  return subtract(*args) if options[:subtract]
+
+	end
 
