@@ -202,7 +202,7 @@ Ruby имеет очень красивую выразительность и п
 
 
 
-
+http://andywenk.github.io/2014/06/27/ruby-create-a-hash-from-arrays/
 
 
 
