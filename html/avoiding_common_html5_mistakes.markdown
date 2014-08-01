@@ -1,26 +1,26 @@
-<!-- html5doctor.com/avoiding-common-html5-mistakes/ -->
+ï»¿<!-- html5doctor.com/avoiding-common-html5-mistakes/ -->
 # Avoiding common HTML5 mistakes #
-<!-- to avoid (èçáåãàòü) -->
+<!-- to avoid (Ð¸Ð·Ð±ÐµÐ³Ð°Ñ‚ÑŒ) -->
 
 Between curating sites for the HTML5 gallery and answering readers' questions here at HTML5 Doctor, I see a host of HTML5 sites and their underlying markup. In this post, I'll show you some of the mistakes and poor markup practices I often see and explain how to avoid them.
 
-<!-- to curate (êóðèðîâàòü-âåñòè, íàïðàâëÿòü, îïåêàòü) 
-underlying (ëåæàùèé â îñíîâå, îñíîâíîé)
-post (ñîîáùåíèå íà ôîðóìå)
-to post (îïóáëèêîâàòü â Web)
-poor practise (íåïðàâèëüíûå ìåòîäû;íèçêèé óðîâåíü)
+<!-- to curate (ÐºÑƒÑ€Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ-Ð²ÐµÑÑ‚Ð¸, Ð½Ð°Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ, Ð¾Ð¿ÐµÐºÐ°Ñ‚ÑŒ) 
+underlying (Ð»ÐµÐ¶Ð°Ñ‰Ð¸Ð¹ Ð² Ð¾ÑÐ½Ð¾Ð²Ðµ, Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¹)
+post (ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð½Ð° Ñ„Ð¾Ñ€ÑƒÐ¼Ðµ)
+to post (Ð¾Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ¾Ð²Ð°Ñ‚ÑŒ Ð² Web)
+poor practise (Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ðµ Ð¼ÐµÑ‚Ð¾Ð´Ñ‹;Ð½Ð¸Ð·ÐºÐ¸Ð¹ ÑƒÑ€Ð¾Ð²ÐµÐ½ÑŒ)
 
 -->
 
 ## Don't use section as a wrapper for styling ##
 
-<!-- styling (äèçàéí) -->
+<!-- styling (Ð´Ð¸Ð·Ð°Ð¹Ð½) -->
 
 One of the most common problems I see in people's markup is the arbitrary replacement of <div>s with HTML5 sectioning elements - specifically, replacing wrapper <div>s (used for styling) with <section>s. In XHTML or HTML4, I would see something like this:
 
-<!-- common (îáùèé; ðàñïðîñòðàíåííûé; îáû÷íûé; ÷àñòûé;)
-arbitrary (ïðîèçâîëüíûé; ñàìîâîëüíûé; íåîáîñíîâàííûé; ñóáúåêòèâíûé; áåç óâàæèòåëüíûõ ïðè÷èí)
-specifically (îñîáåííî; à èìåííî; â ÷àñòíîñòè; ãëàâíûì îáðàçîì;)
+<!-- common (Ð¾Ð±Ñ‰Ð¸Ð¹; Ñ€Ð°ÑÐ¿Ñ€Ð¾ÑÑ‚Ñ€Ð°Ð½ÐµÐ½Ð½Ñ‹Ð¹; Ð¾Ð±Ñ‹Ñ‡Ð½Ñ‹Ð¹; Ñ‡Ð°ÑÑ‚Ñ‹Ð¹;)
+arbitrary (Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð»ÑŒÐ½Ñ‹Ð¹; ÑÐ°Ð¼Ð¾Ð²Ð¾Ð»ÑŒÐ½Ñ‹Ð¹; Ð½ÐµÐ¾Ð±Ð¾ÑÐ½Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹; ÑÑƒÐ±ÑŠÐµÐºÑ‚Ð¸Ð²Ð½Ñ‹Ð¹; Ð±ÐµÐ· ÑƒÐ²Ð°Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ñ… Ð¿Ñ€Ð¸Ñ‡Ð¸Ð½)
+specifically (Ð¾ÑÐ¾Ð±ÐµÐ½Ð½Ð¾; Ð° Ð¸Ð¼ÐµÐ½Ð½Ð¾; Ð² Ñ‡Ð°ÑÑ‚Ð½Ð¾ÑÑ‚Ð¸; Ð³Ð»Ð°Ð²Ð½Ñ‹Ð¼ Ð¾Ð±Ñ€Ð°Ð·Ð¾Ð¼;)
 -->
 
 	<!-- HTML 4-style code -->
@@ -56,16 +56,16 @@ Now, I'm instead seeing this:
 	  </footer>
 	</section>
 
-	<!-- duper (ïóïåð) -->
+	<!-- duper (Ð¿ÑƒÐ¿ÐµÑ€) -->
 
 Frankly, that's just wrong: <section> is not a wrapper. The <section> element denotes a semantic section of your content to help construct a document outline. It should contain a heading. If you're looking for a page wrapper element (for any flavour of HTML of XHTML), consider applying styles directly to the <body> element as described by Kroc Camen. If you still need and addition element for styling, use a <div>. As Dr Mike explains, div isn't dead, and if there's nothing else more appropriate, it's probably where you really want to apply your CSS.
 
-<!-- Frankly (ïðÿìî; îòêðûòü; îòêðîâåííî; îòêðîâåííî ãîâîðÿ; ïðÿìî ñêàæåì; åñëè ÷åñòíî;)
-to denote (îáîçíà÷àòü; îçíà÷àòü;)
-outline (èåðàðõè÷åñêàÿ ñòðóêòóðà äîêóìåíòà(â÷ò.))
-flavour (âèä)
-consider (ðàññìîòðåòü âîïðîñ)
-appropriate ( ñîîòâåòñòâóþùèé; ïîäõîäÿùèé;)
+<!-- Frankly (Ð¿Ñ€ÑÐ¼Ð¾; Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ; Ð¾Ñ‚ÐºÑ€Ð¾Ð²ÐµÐ½Ð½Ð¾; Ð¾Ñ‚ÐºÑ€Ð¾Ð²ÐµÐ½Ð½Ð¾ Ð³Ð¾Ð²Ð¾Ñ€Ñ; Ð¿Ñ€ÑÐ¼Ð¾ ÑÐºÐ°Ð¶ÐµÐ¼; ÐµÑÐ»Ð¸ Ñ‡ÐµÑÑ‚Ð½Ð¾;)
+to denote (Ð¾Ð±Ð¾Ð·Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ; Ð¾Ð·Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ;)
+outline (Ð¸ÐµÑ€Ð°Ñ€Ñ…Ð¸Ñ‡ÐµÑÐºÐ°Ñ ÑÑ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ð° Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð°(Ð²Ñ‡Ñ‚.))
+flavour (Ð²Ð¸Ð´)
+consider (Ñ€Ð°ÑÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð²Ð¾Ð¿Ñ€Ð¾Ñ)
+appropriate ( ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¹; Ð¿Ð¾Ð´Ñ…Ð¾Ð´ÑÑ‰Ð¸Ð¹;)
 
 -->
 
@@ -92,13 +92,13 @@ With that in mind, here's the correct way to mark up the above example using HTM
 
 If you're not quite sure which element to use, then I suggest you refer to our HTML5 sectioning content element flowchart to guide you along your way.
 
-<!-- to guide (âåñòè; íàïðàâëÿòü;) -->
+<!-- to guide (Ð²ÐµÑÑ‚Ð¸; Ð½Ð°Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ;) -->
 
 ## Only use header and hgroup when they're required ##
 
 	the <hgroup> has now been removed from the HTML5 specification, please keep that in mind when reading the rest of this article.
 
-<!-- the rest of (îñòàëüíîé; îñòàâøèéñÿ; îñòàëüíàÿ ÷àñòü ÷åãî-ëèáî;) -->
+<!-- the rest of (Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ð¾Ð¹; Ð¾ÑÑ‚Ð°Ð²ÑˆÐ¸Ð¹ÑÑ; Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Ñ‡ÐµÐ³Ð¾-Ð»Ð¸Ð±Ð¾;) -->
 
 
 There's no sense writing markup when you don't have to, right? Unfortunately, I often see <header> and <hgroup> being used when there's no need for them. You can get up to speed with our articles on the <header> element and the <hgroup> element, but I'll briefly summarise:
@@ -106,17 +106,17 @@ There's no sense writing markup when you don't have to, right? Unfortunately, I 
 * The <header> element represents a group of introductory or navigational aids and usually contains the section's heading
 * The <hgroup> element groups a set of <h1>-<h6> elements representing a section's heading when the heading has multiple levels, such as subheadings, alternative titles, or taglines
 
-<!-- sense (ñìûñë; ÷óñòâî;)
-unfortunately (ê ñîæàëåíèþ; ê íåñ÷àñòüþ;)
-get up to speed (âûâåñòè íà òðåáóåìûé óðîâåíü; ââåñòè â êóðñ ñîáûòèé,äåëà)
-heading (çàãîëîâîê;)
-tagline (ñëîãàí;)
+<!-- sense (ÑÐ¼Ñ‹ÑÐ»; Ñ‡ÑƒÑÑ‚Ð²Ð¾;)
+unfortunately (Ðº ÑÐ¾Ð¶Ð°Ð»ÐµÐ½Ð¸ÑŽ; Ðº Ð½ÐµÑÑ‡Ð°ÑÑ‚ÑŒÑŽ;)
+get up to speed (Ð²Ñ‹Ð²ÐµÑÑ‚Ð¸ Ð½Ð° Ñ‚Ñ€ÐµÐ±ÑƒÐµÐ¼Ñ‹Ð¹ ÑƒÑ€Ð¾Ð²ÐµÐ½ÑŒ; Ð²Ð²ÐµÑÑ‚Ð¸ Ð² ÐºÑƒÑ€Ñ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ð¹,Ð´ÐµÐ»Ð°)
+heading (Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº;)
+tagline (ÑÐ»Ð¾Ð³Ð°Ð½;)
 
 --> 
 
 
 ## Overuse of header ##
-<!-- overuse (çëîóïîòðåáëÿòü; ÷ðåçìåðíî èñïîëüçîâàòü;) -->
+<!-- overuse (Ð·Ð»Ð¾ÑƒÐ¿Ð¾Ñ‚Ñ€ÐµÐ±Ð»ÑÑ‚ÑŒ; Ñ‡Ñ€ÐµÐ·Ð¼ÐµÑ€Ð½Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ;) -->
 
 As I'm sure you're aware, the <header> element can be used multiple times in a document, which has popularized the following pattern:
 
@@ -129,8 +129,8 @@ As I'm sure you're aware, the <header> element can be used multiple times in a d
 	</article>
 
 <!-- 
-aware (ñîçíàþùèé; çíàþùèé; îñâåäîìëåííûé;)
-popularize (ðàñïðîñòðàíÿòü; ïðîïàãàíäèðîâàòü; èçëàãàòü ïîïóëÿðíî; ïîïóëÿðèçèðîâàòü;)
+aware (ÑÐ¾Ð·Ð½Ð°ÑŽÑ‰Ð¸Ð¹; Ð·Ð½Ð°ÑŽÑ‰Ð¸Ð¹; Ð¾ÑÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ‹Ð¹;)
+popularize (Ñ€Ð°ÑÐ¿Ñ€Ð¾ÑÑ‚Ñ€Ð°Ð½ÑÑ‚ÑŒ; Ð¿Ñ€Ð¾Ð¿Ð°Ð³Ð°Ð½Ð´Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ; Ð¸Ð·Ð»Ð°Ð³Ð°Ñ‚ÑŒ Ð¿Ð¾Ð¿ÑƒÐ»ÑÑ€Ð½Ð¾; Ð¿Ð¾Ð¿ÑƒÐ»ÑÑ€Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ;)
 
  -->
 
@@ -142,8 +142,8 @@ If your <header> element only contains a single heading element, leave out the <
 	</article>
 
 <!-- 
-leave out (íå âëþ÷àòü; èñêëþ÷àòü; ïðîïóñòèòü; )
-to ensure (ãàðàíòèðîâàòü; îáåñïå÷èâàòü; ðó÷àòüñÿ;)
+leave out (Ð½Ðµ Ð²Ð»ÑŽÑ‡Ð°Ñ‚ÑŒ; Ð¸ÑÐºÐ»ÑŽÑ‡Ð°Ñ‚ÑŒ; Ð¿Ñ€Ð¾Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ; )
+to ensure (Ð³Ð°Ñ€Ð°Ð½Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ; Ð¾Ð±ÐµÑÐ¿ÐµÑ‡Ð¸Ð²Ð°Ñ‚ÑŒ; Ñ€ÑƒÑ‡Ð°Ñ‚ÑŒÑÑ;)
 
 -->
 
@@ -156,8 +156,8 @@ On the subject of headers, I alse frequently see incorrect uses of <hgroup>. You
 * the <hgroup> would work fine on its own (i.e., without the <header>).
 
 <!-- 
-on the subject of (ïî ïîâîäó)
-on its own (ñàì/ñàìà ïî ñåáå; ñîáñòâåííûìè ñèëàìè)
+on the subject of (Ð¿Ð¾ Ð¿Ð¾Ð²Ð¾Ð´Ñƒ)
+on its own (ÑÐ°Ð¼/ÑÐ°Ð¼Ð° Ð¿Ð¾ ÑÐµÐ±Ðµ; ÑÐ¾Ð±ÑÑ‚Ð²ÐµÐ½Ð½Ñ‹Ð¼Ð¸ ÑÐ¸Ð»Ð°Ð¼Ð¸)
 
 -->
 
@@ -179,7 +179,7 @@ In that case, simply remove the <hgroup> and let the heading run free.
 	</header>
 
 <!-- 
-let run free (âûïóñòèòü; îñâîáîäèòü;)
+let run free (Ð²Ñ‹Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ; Ð¾ÑÐ²Ð¾Ð±Ð¾Ð´Ð¸Ñ‚ÑŒ;)
 
 -->
 
@@ -212,15 +212,15 @@ With 30 new elements (at the time of writing) introduced in HTML5, we're somewha
 	WHATWG HTML spec
 
 <!--
-somewhat (íåìíîãî; äî íåêîòîðîé ñòåïåíè; íåñêîëüêî; â êàêîé-òî ñòåïåíè;)
-spoilt for choice (èçáàëîâàííûé âûáîðîì);
-when it comes (êîãäà äåëî äîõîäèò;)
-meaningful (îñìûñëåííûé; çíà÷àùèé;)
-abuse (÷ðåçìåðíî óâëåêàòüñÿ;)
-intend (ïðåïîëàãàòü;ïðåäíàçíà÷àòü;)
-terms of service (óñëîâèÿ îêàçàíèÿ óñëóã;)
-alone (êàê òàêîâîé; âçÿòûé îòäåëüíî; âçÿòûé ñàì ïî ñåáå;)
-sufficient (äîâîëüíî; äîñòàòî÷íî; )
+somewhat (Ð½ÐµÐ¼Ð½Ð¾Ð³Ð¾; Ð´Ð¾ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¹ ÑÑ‚ÐµÐ¿ÐµÐ½Ð¸; Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾; Ð² ÐºÐ°ÐºÐ¾Ð¹-Ñ‚Ð¾ ÑÑ‚ÐµÐ¿ÐµÐ½Ð¸;)
+spoilt for choice (Ð¸Ð·Ð±Ð°Ð»Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€Ð¾Ð¼);
+when it comes (ÐºÐ¾Ð³Ð´Ð° Ð´ÐµÐ»Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð¸Ñ‚;)
+meaningful (Ð¾ÑÐ¼Ñ‹ÑÐ»ÐµÐ½Ð½Ñ‹Ð¹; Ð·Ð½Ð°Ñ‡Ð°Ñ‰Ð¸Ð¹;)
+abuse (Ñ‡Ñ€ÐµÐ·Ð¼ÐµÑ€Ð½Ð¾ ÑƒÐ²Ð»ÐµÐºÐ°Ñ‚ÑŒÑÑ;)
+intend (Ð¿Ñ€ÐµÐ¿Ð¾Ð»Ð°Ð³Ð°Ñ‚ÑŒ;Ð¿Ñ€ÐµÐ´Ð½Ð°Ð·Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ;)
+terms of service (ÑƒÑÐ»Ð¾Ð²Ð¸Ñ Ð¾ÐºÐ°Ð·Ð°Ð½Ð¸Ñ ÑƒÑÐ»ÑƒÐ³;)
+alone (ÐºÐ°Ðº Ñ‚Ð°ÐºÐ¾Ð²Ð¾Ð¹; Ð²Ð·ÑÑ‚Ñ‹Ð¹ Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ð¾; Ð²Ð·ÑÑ‚Ñ‹Ð¹ ÑÐ°Ð¼ Ð¿Ð¾ ÑÐµÐ±Ðµ;)
+sufficient (Ð´Ð¾Ð²Ð¾Ð»ÑŒÐ½Ð¾; Ð´Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ñ‡Ð½Ð¾; )
 WHATWG 	Web Hypertext Application Technology Working Group
 -->
 
@@ -233,7 +233,7 @@ The key phrase is 'major' navigation. We could debate all day about the definiti
 * In-page navigation (within a long article, for example)
 
 <!-- 
-arguably (âîçìîæíî)
+arguably (Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾)
 -->
 
 While there isn't any right or wrong here, a straw poll coupled with my own interpretation tells me that the following shouldn't be enclosed by <nav>:
@@ -246,8 +246,8 @@ While there isn't any right or wrong here, a straw poll coupled with my own inte
 * Fat footers
 
 <!-- 
-straw poll (ïðåäâàðèòåëüíîå ãîëîñîâàíèå; íåîôèöèàëüíûé îïðîñ)
-coupled with (â ñî÷åòàíèè ñ; âêóïå ñ; íàðÿäó ñ;)
+straw poll (Ð¿Ñ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð³Ð¾Ð»Ð¾ÑÐ¾Ð²Ð°Ð½Ð¸Ðµ; Ð½ÐµÐ¾Ñ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¾Ð¿Ñ€Ð¾Ñ)
+coupled with (Ð² ÑÐ¾Ñ‡ÐµÑ‚Ð°Ð½Ð¸Ð¸ Ñ; Ð²ÐºÑƒÐ¿Ðµ Ñ; Ð½Ð°Ñ€ÑÐ´Ñƒ Ñ;)
 
 -->
 
@@ -259,10 +259,10 @@ If you're unsure whether to mark up a list of links with <nav>, ask yourself thi
 If the answer to these questions is 'no', then it's probably not a <nav>.
 
 <!-- 
-unsure (íåóâåðåííûé; íå ãàðàíòèðîâàííûé; íåáåçîïàñíûé; êîëåáëþùèéñÿ;)
-consider (ðàññìàòðèâàòü; ñ÷èòàòü;)
-rules of thumb (ïðàêòè÷åñêèå ìåòîäû; ïðàâèëà íà îñíîâå ïðàêòèêè;)
-appropriate (ñîîòâåòñòâóþùèé; îïòèìàëüíûé; ïîäõîäÿùèé;)
+unsure (Ð½ÐµÑƒÐ²ÐµÑ€ÐµÐ½Ð½Ñ‹Ð¹; Ð½Ðµ Ð³Ð°Ñ€Ð°Ð½Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹; Ð½ÐµÐ±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ñ‹Ð¹; ÐºÐ¾Ð»ÐµÐ±Ð»ÑŽÑ‰Ð¸Ð¹ÑÑ;)
+consider (Ñ€Ð°ÑÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°Ñ‚ÑŒ; ÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ;)
+rules of thumb (Ð¿Ñ€Ð°ÐºÑ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ð¼ÐµÑ‚Ð¾Ð´Ñ‹; Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð° Ð½Ð° Ð¾ÑÐ½Ð¾Ð²Ðµ Ð¿Ñ€Ð°ÐºÑ‚Ð¸ÐºÐ¸;)
+appropriate (ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¹; Ð¾Ð¿Ñ‚Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹; Ð¿Ð¾Ð´Ñ…Ð¾Ð´ÑÑ‰Ð¸Ð¹;)
 -->
 
 ## Common mistakes with the figure element ##
@@ -270,8 +270,8 @@ appropriate (ñîîòâåòñòâóþùèé; îïòèìàëüíûé; ïîäõîäÿùèé;)
 Ah, <figure>. The appropriate use of this element, along with its partner-in-crime <figcaption>, is quite difficult to master. Let's look at a few common problems I see with <figure>.
 
 <!--
-partner-in-crime (ñîîáùíèê;ïîäåëüíèê; ñîó÷àñòíèê ïðåñòóïëåíèÿ;)
-along with (âìåñòå; íàðÿäó ñ; âìåñòå ñ;)
+partner-in-crime (ÑÐ¾Ð¾Ð±Ñ‰Ð½Ð¸Ðº;Ð¿Ð¾Ð´ÐµÐ»ÑŒÐ½Ð¸Ðº; ÑÐ¾ÑƒÑ‡Ð°ÑÑ‚Ð½Ð¸Ðº Ð¿Ñ€ÐµÑÑ‚ÑƒÐ¿Ð»ÐµÐ½Ð¸Ñ;)
+along with (Ð²Ð¼ÐµÑÑ‚Ðµ; Ð½Ð°Ñ€ÑÐ´Ñƒ Ñ; Ð²Ð¼ÐµÑÑ‚Ðµ Ñ;)
 -->
 
 ## Not every image is a figure ##
@@ -283,23 +283,23 @@ The spec describes <figure> as being "some flow content, optionally with a capti
 If it's a purely presentational image and not referenced elsewhere in the document, then it's definitely not a <figure>. Other use cases vary, but as a start, ask yourself, "Is this image required to understand the current context?" If not, it's probably not a <figure> (an <aside>, perhaps). If so, ask yourself, "Could I move this to an appendix?" If the answer to both questions is 'yes', it's probably a <figure>.
 
 <!--
-extra (äîïîëíèòåëüíûé)
-mark up (ðàçìå÷àòü; ïîâûñèòü öåíó; âåñòè ñ÷åò;)
-markup (ðàçìåòêà;)
-for the sake of it (ïðîñòî òàê;)
-optionally (íåîáÿçàòåëüíî; ïðè æåëàíèè; â êà÷åñòâå îïöèè; äîáàâî÷íûé; äîïîëíèòåëüíûé;)
-caption (ñîïðîâîäèòåëüíàÿ ïîäïèñü; çàãîëîâîê ãëàâû; çàãëàâèå; ïîäïèñü ê êàðòèíêå;)
-self-contained (ñàìîñòîÿòåëüíûé; íåçàâèñèìûé; çàìêíóòûé; àâòîíîìíûé;)
-typically (òèïè÷íî; êàê ïðàâèëî; ÷àñòî; â îñíîâíîì; îáû÷íî;)
-single unit (îäíó åäèíèöà)
-therein (â ýòîì; â ýòîì îòíîøåíèè;)
-therein lies (â ýòîì çàêëþ÷àåòñÿ;)
-moved away (îòîäâèíóòûé;)
-sidebar (áîêîâàÿ ïàíåëü;)
-affect (çàòðàãèâàòü;)
-purely (÷èñòî; ñîâåðøåííî; ïîëíîñòüþ; òîëüêî; ëèøü; ïðîñòî;)
-vary (ìåíÿòü; ìåíÿòüñÿ; èçìåíÿòüñÿ; îòëè÷àòüñÿ;ðàñõîäèòüñÿ; âàðüèðîâàòü;)
-appendix (ïðèëîæåíèå;)
+extra (Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹)
+mark up (Ñ€Ð°Ð·Ð¼ÐµÑ‡Ð°Ñ‚ÑŒ; Ð¿Ð¾Ð²Ñ‹ÑÐ¸Ñ‚ÑŒ Ñ†ÐµÐ½Ñƒ; Ð²ÐµÑÑ‚Ð¸ ÑÑ‡ÐµÑ‚;)
+markup (Ñ€Ð°Ð·Ð¼ÐµÑ‚ÐºÐ°;)
+for the sake of it (Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ñ‚Ð°Ðº;)
+optionally (Ð½ÐµÐ¾Ð±ÑÐ·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾; Ð¿Ñ€Ð¸ Ð¶ÐµÐ»Ð°Ð½Ð¸Ð¸; Ð² ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ðµ Ð¾Ð¿Ñ†Ð¸Ð¸; Ð´Ð¾Ð±Ð°Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹; Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹;)
+caption (ÑÐ¾Ð¿Ñ€Ð¾Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑŒ; Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ð³Ð»Ð°Ð²Ñ‹; Ð·Ð°Ð³Ð»Ð°Ð²Ð¸Ðµ; Ð¿Ð¾Ð´Ð¿Ð¸ÑÑŒ Ðº ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ;)
+self-contained (ÑÐ°Ð¼Ð¾ÑÑ‚Ð¾ÑÑ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹; Ð½ÐµÐ·Ð°Ð²Ð¸ÑÐ¸Ð¼Ñ‹Ð¹; Ð·Ð°Ð¼ÐºÐ½ÑƒÑ‚Ñ‹Ð¹; Ð°Ð²Ñ‚Ð¾Ð½Ð¾Ð¼Ð½Ñ‹Ð¹;)
+typically (Ñ‚Ð¸Ð¿Ð¸Ñ‡Ð½Ð¾; ÐºÐ°Ðº Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð¾; Ñ‡Ð°ÑÑ‚Ð¾; Ð² Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¼; Ð¾Ð±Ñ‹Ñ‡Ð½Ð¾;)
+single unit (Ð¾Ð´Ð½Ñƒ ÐµÐ´Ð¸Ð½Ð¸Ñ†Ð°)
+therein (Ð² ÑÑ‚Ð¾Ð¼; Ð² ÑÑ‚Ð¾Ð¼ Ð¾Ñ‚Ð½Ð¾ÑˆÐµÐ½Ð¸Ð¸;)
+therein lies (Ð² ÑÑ‚Ð¾Ð¼ Ð·Ð°ÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ÑÑ;)
+moved away (Ð¾Ñ‚Ð¾Ð´Ð²Ð¸Ð½ÑƒÑ‚Ñ‹Ð¹;)
+sidebar (Ð±Ð¾ÐºÐ¾Ð²Ð°Ñ Ð¿Ð°Ð½ÐµÐ»ÑŒ;)
+affect (Ð·Ð°Ñ‚Ñ€Ð°Ð³Ð¸Ð²Ð°Ñ‚ÑŒ;)
+purely (Ñ‡Ð¸ÑÑ‚Ð¾; ÑÐ¾Ð²ÐµÑ€ÑˆÐµÐ½Ð½Ð¾; Ð¿Ð¾Ð»Ð½Ð¾ÑÑ‚ÑŒÑŽ; Ñ‚Ð¾Ð»ÑŒÐºÐ¾; Ð»Ð¸ÑˆÑŒ; Ð¿Ñ€Ð¾ÑÑ‚Ð¾;)
+vary (Ð¼ÐµÐ½ÑÑ‚ÑŒ; Ð¼ÐµÐ½ÑÑ‚ÑŒÑÑ; Ð¸Ð·Ð¼ÐµÐ½ÑÑ‚ÑŒÑÑ; Ð¾Ñ‚Ð»Ð¸Ñ‡Ð°Ñ‚ÑŒÑÑ;Ñ€Ð°ÑÑ…Ð¾Ð´Ð¸Ñ‚ÑŒÑÑ; Ð²Ð°Ñ€ÑŒÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ;)
+appendix (Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ;)
 -->
 
 ## Your logo is not a figure ##
@@ -323,7 +323,7 @@ Segueing nicely on, the same applies to your logo. Here are a couple of snippets
 	  </figure>
 	</header>
 
-There’s nothing else to say here. It’s just plain wrong. We could argue until the cows come home about whether your logo should be in an <h1>, but that’s not what we’re here for. The real issue is the abuse of the <figure> element. <figure> should be used only when referenced in a document or surrounding sectioning element. I think it’s fair to say that your logo is rarely going to be referenced in such a way. Quite simply, don’t do it. All you need is this:
+Thereâ€™s nothing else to say here. Itâ€™s just plain wrong. We could argue until the cows come home about whether your logo should be in an <h1>, but thatâ€™s not what weâ€™re here for. The real issue is the abuse of the <figure> element. <figure> should be used only when referenced in a document or surrounding sectioning element. I think itâ€™s fair to say that your logo is rarely going to be referenced in such a way. Quite simply, donâ€™t do it. All you need is this:
 
 	<header>  
 	  <h1>My company name</h1>
@@ -331,47 +331,47 @@ There’s nothing else to say here. It’s just plain wrong. We could argue until th
 	</header>
 
 <!--
-seguing (ïðîäîëæàÿ)
-snippet (ôðàãìåíò êîäà; ôðàãìåíò; êîðîòêàÿ òåêñòîâàÿ èíôîðìàöèÿ ïî ñàéòó;)
-plain (ÿâíûé; ïðîñòîé;ÿñíûé; ïëîñêèé;îäíîòîííûé;)
-argue (ñïîðèòü;ïðèâîäèòü äîâîäû; äîêàçûâàòü; ðàññóæäàòü; âûñêàçûâàòüñÿ;)
-until the cows come home (äî áåñêîíå÷íîñòè;)
-abuse (íåïðàâèëüíîå óïîòðåáëåíèå;)
-fair (÷åñòíûé; ñïðàâåäëèâûé;çàêîííûé;)
-rarely (ðåäêî; èçðåäêà; èíîãäà;)
+seguing (Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð°Ñ)
+snippet (Ñ„Ñ€Ð°Ð³Ð¼ÐµÐ½Ñ‚ ÐºÐ¾Ð´Ð°; Ñ„Ñ€Ð°Ð³Ð¼ÐµÐ½Ñ‚; ÐºÐ¾Ñ€Ð¾Ñ‚ÐºÐ°Ñ Ñ‚ÐµÐºÑÑ‚Ð¾Ð²Ð°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ;)
+plain (ÑÐ²Ð½Ñ‹Ð¹; Ð¿Ñ€Ð¾ÑÑ‚Ð¾Ð¹;ÑÑÐ½Ñ‹Ð¹; Ð¿Ð»Ð¾ÑÐºÐ¸Ð¹;Ð¾Ð´Ð½Ð¾Ñ‚Ð¾Ð½Ð½Ñ‹Ð¹;)
+argue (ÑÐ¿Ð¾Ñ€Ð¸Ñ‚ÑŒ;Ð¿Ñ€Ð¸Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð´Ð¾Ð²Ð¾Ð´Ñ‹; Ð´Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ; Ñ€Ð°ÑÑÑƒÐ¶Ð´Ð°Ñ‚ÑŒ; Ð²Ñ‹ÑÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒÑÑ;)
+until the cows come home (Ð´Ð¾ Ð±ÐµÑÐºÐ¾Ð½ÐµÑ‡Ð½Ð¾ÑÑ‚Ð¸;)
+abuse (Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ðµ ÑƒÐ¿Ð¾Ñ‚Ñ€ÐµÐ±Ð»ÐµÐ½Ð¸Ðµ;)
+fair (Ñ‡ÐµÑÑ‚Ð½Ñ‹Ð¹; ÑÐ¿Ñ€Ð°Ð²ÐµÐ´Ð»Ð¸Ð²Ñ‹Ð¹;Ð·Ð°ÐºÐ¾Ð½Ð½Ñ‹Ð¹;)
+rarely (Ñ€ÐµÐ´ÐºÐ¾; Ð¸Ð·Ñ€ÐµÐ´ÐºÐ°; Ð¸Ð½Ð¾Ð³Ð´Ð°;)
 
 -->
 
 
 ## Figure can be more than an image ##
 
-Another common misconception regarding <figure> is that it can only be used for images. This isn’t the case. A <figure> could be video, audio, a chart (in SVG, for example), a quote, a table, a block of code, a piece of prose, or any combination of these and much more besides. Don’t limit your <figure>s to images. Our job as web standards affectionadoes is to accurately describe the content with our markup.
+Another common misconception regarding <figure> is that it can only be used for images. This isnâ€™t the case. A <figure> could be video, audio, a chart (in SVG, for example), a quote, a table, a block of code, a piece of prose, or any combination of these and much more besides. Donâ€™t limit your <figure>s to images. Our job as web standards affectionadoes is to accurately describe the content with our markup.
 
-A while back, I wrote about <figure> in more depth. It’s worth a read if you want more detail or need a refresher.
+A while back, I wrote about <figure> in more depth. Itâ€™s worth a read if you want more detail or need a refresher.
 http://html5doctor.com/the-figure-figcaption-elements/
 
 <!--
-misconception (íåïðàâèëüíîå ïîíèìàíèå; íåäîðàçóìåíèå; ëîæíîå ïðåäñòàâëåíèå;)
-regarding (ïî âîïðîñó; êàñàåìî; êàñàòåëüíî;)
-this is not the case (ýòî íå òîò ñëó÷àé; äåëî îáñòîèò íå òàê;)
-chart (äèàãðàììà)
-quote (öèòàòà)
-piece of prose (îòðûâîê ïðîçû)
+misconception (Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ðµ Ð¿Ð¾Ð½Ð¸Ð¼Ð°Ð½Ð¸Ðµ; Ð½ÐµÐ´Ð¾Ñ€Ð°Ð·ÑƒÐ¼ÐµÐ½Ð¸Ðµ; Ð»Ð¾Ð¶Ð½Ð¾Ðµ Ð¿Ñ€ÐµÐ´ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ;)
+regarding (Ð¿Ð¾ Ð²Ð¾Ð¿Ñ€Ð¾ÑÑƒ; ÐºÐ°ÑÐ°ÐµÐ¼Ð¾; ÐºÐ°ÑÐ°Ñ‚ÐµÐ»ÑŒÐ½Ð¾;)
+this is not the case (ÑÑ‚Ð¾ Ð½Ðµ Ñ‚Ð¾Ñ‚ ÑÐ»ÑƒÑ‡Ð°Ð¹; Ð´ÐµÐ»Ð¾ Ð¾Ð±ÑÑ‚Ð¾Ð¸Ñ‚ Ð½Ðµ Ñ‚Ð°Ðº;)
+chart (Ð´Ð¸Ð°Ð³Ñ€Ð°Ð¼Ð¼Ð°)
+quote (Ñ†Ð¸Ñ‚Ð°Ñ‚Ð°)
+piece of prose (Ð¾Ñ‚Ñ€Ñ‹Ð²Ð¾Ðº Ð¿Ñ€Ð¾Ð·Ñ‹)
 besides ()
 affectionadoes ()
-a while back (íåêîòîðîå âðåìÿ òîìó íàçàä)
-it is worth (èìååò ñìûñë)
-refresher (ïîâòîðíûé)
+a while back (Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð²Ñ€ÐµÐ¼Ñ Ñ‚Ð¾Ð¼Ñƒ Ð½Ð°Ð·Ð°Ð´)
+it is worth (Ð¸Ð¼ÐµÐµÑ‚ ÑÐ¼Ñ‹ÑÐ»)
+refresher (Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ñ‹Ð¹)
 
 -->
 
-## Don’t include unnecessary type attributes ##
+## Donâ€™t include unnecessary type attributes ##
 
-This is probably the most common problem we see in HTML5 Gallery submissions. While it isn’t really a mistake, I believe it’s best practice to avoid this pattern.
+This is probably the most common problem we see in HTML5 Gallery submissions. While it isnâ€™t really a mistake, I believe itâ€™s best practice to avoid this pattern.
 
-In HTML5, there’s no need to include the type attribute on <script> and <style> elements. While these can be a pain to remove if they’re automatically added by your CMS, there’s really no reason to include them if you’re coding by hand or if you have tight control over your templates. Since all browsers expect scripts to be JavaScript and styles to be CSS, you don’t need this:
+In HTML5, thereâ€™s no need to include the type attribute on <script> and <style> elements. While these can be a pain to remove if theyâ€™re automatically added by your CMS, thereâ€™s really no reason to include them if youâ€™re coding by hand or if you have tight control over your templates. Since all browsers expect scripts to be JavaScript and styles to be CSS, you donâ€™t need this:
 
-	<!-- Don’t copy this code! It’s attribute overload! -->
+	<!-- Donâ€™t copy this code! Itâ€™s attribute overload! -->
 	<link type="text/css" rel="stylesheet" href="css/styles.css" />
 	<script type="text/javascript" src="js/scripts.js"></script>
 
@@ -381,22 +381,22 @@ Instead, you can simply write:
 	<link rel="stylesheet" href="css/styles.css" />
 	<script src="js/scripts.js"></script>
 
-You can also reduce the amount of code you write to specify your character set, amongst other things. Mark Pilgrim’s chapter on semantics in Dive into HTML5 explains all.
+You can also reduce the amount of code you write to specify your character set, amongst other things. Mark Pilgrimâ€™s chapter on semantics in Dive into HTML5 explains all.
 
 <!--
-unnecessary (íåíóæíûé; ëèøíèé;)
-submission (ïðåäñòàâëåíèå;)
-reduce (ñíèçèòü; óìåíüøèòü; ñíèæàòü;)
-amongst other things (ïîìèìî ïðî÷åãî;)
+unnecessary (Ð½ÐµÐ½ÑƒÐ¶Ð½Ñ‹Ð¹; Ð»Ð¸ÑˆÐ½Ð¸Ð¹;)
+submission (Ð¿Ñ€ÐµÐ´ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ;)
+reduce (ÑÐ½Ð¸Ð·Ð¸Ñ‚ÑŒ; ÑƒÐ¼ÐµÐ½ÑŒÑˆÐ¸Ñ‚ÑŒ; ÑÐ½Ð¸Ð¶Ð°Ñ‚ÑŒ;)
+amongst other things (Ð¿Ð¾Ð¼Ð¸Ð¼Ð¾ Ð¿Ñ€Ð¾Ñ‡ÐµÐ³Ð¾;)
 -->
 
 ## Incorrect use of form attributes ##
 
-You may be aware that HTML5 has introduced a range of new attributes for forms. We’ll cover them in more detail in the coming months, but in the meantime, I’ll quickly show you a few things not to do.
+You may be aware that HTML5 has introduced a range of new attributes for forms. Weâ€™ll cover them in more detail in the coming months, but in the meantime, Iâ€™ll quickly show you a few things not to do.
 
 <!--
-range (ðÿä)
-in the meantime (â òî æå âðåìÿ; ìåæäó òåì; à ïîêà; òåì âðåìåíåì;)
+range (Ñ€ÑÐ´)
+in the meantime (Ð² Ñ‚Ð¾ Ð¶Ðµ Ð²Ñ€ÐµÐ¼Ñ; Ð¼ÐµÐ¶Ð´Ñƒ Ñ‚ÐµÐ¼; Ð° Ð¿Ð¾ÐºÐ°; Ñ‚ÐµÐ¼ Ð²Ñ€ÐµÐ¼ÐµÐ½ÐµÐ¼;)
 -->
 
 ## Boolean attributes ##
@@ -407,21 +407,21 @@ Several of the new form attributes are boolean, meaning their mere presence in t
 * autocomplete
 * required
 
-Admittedly, I only rarely see this, but using required as an example, I’ve seen the following:
+Admittedly, I only rarely see this, but using required as an example, Iâ€™ve seen the following:
 
-	<!-- Don’t copy this code! It’s wrong! -->
+	<!-- Donâ€™t copy this code! Itâ€™s wrong! -->
 	<input type="email" name="email" required="true" />
 	<!-- Another bad example -->
 	<input type="email" name="email" required="1" />
 
-Ultimately, this causes no harm. The client’s HTML parser sees the required attribute in the markup, so its function will still be applied. But what if you flip the code on its head and type required="false"?
+Ultimately, this causes no harm. The clientâ€™s HTML parser sees the required attribute in the markup, so its function will still be applied. But what if you flip the code on its head and type required="false"?
 
-	<!-- Don’t copy this code! It’s wrong! -->
+	<!-- Donâ€™t copy this code! Itâ€™s wrong! -->
 	<input type="email" name="email" required="false" />
 
 The parser will still see the required attribute and implement the behaviour even though you tried to tell it not to. Certainly not what you wanted.
 
-There are three valid ways for a boolean attribute to be applied. (The second and third options only apply if you’re writing XHTML syntax.)
+There are three valid ways for a boolean attribute to be applied. (The second and third options only apply if youâ€™re writing XHTML syntax.)
 
 * required
 * required=""
@@ -432,29 +432,29 @@ Applying that to our above example, we would write this (in HTML):
 	<input type="email" name="email" required />
 
 <!--
-mere (ÿâíûé; ïðîñòîé;)
-presence (ïðèñóòñòâèå;)
-Admittedly, (íóæíî ïðèçíàòü, ÷òî;)
-only (êðàéíå)
-ultimately (â êîíöå êîíöîâ; â êîíå÷íîì èòîãå; â êîíå÷íîì ñ÷åòå;)
-to cause (âûçûâàòü;)
-harm (âðåä;)
-flip (ïåðåâåðíóòü;)
+mere (ÑÐ²Ð½Ñ‹Ð¹; Ð¿Ñ€Ð¾ÑÑ‚Ð¾Ð¹;)
+presence (Ð¿Ñ€Ð¸ÑÑƒÑ‚ÑÑ‚Ð²Ð¸Ðµ;)
+Admittedly, (Ð½ÑƒÐ¶Ð½Ð¾ Ð¿Ñ€Ð¸Ð·Ð½Ð°Ñ‚ÑŒ, Ñ‡Ñ‚Ð¾;)
+only (ÐºÑ€Ð°Ð¹Ð½Ðµ)
+ultimately (Ð² ÐºÐ¾Ð½Ñ†Ðµ ÐºÐ¾Ð½Ñ†Ð¾Ð²; Ð² ÐºÐ¾Ð½ÐµÑ‡Ð½Ð¾Ð¼ Ð¸Ñ‚Ð¾Ð³Ðµ; Ð² ÐºÐ¾Ð½ÐµÑ‡Ð½Ð¾Ð¼ ÑÑ‡ÐµÑ‚Ðµ;)
+to cause (Ð²Ñ‹Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ;)
+harm (Ð²Ñ€ÐµÐ´;)
+flip (Ð¿ÐµÑ€ÐµÐ²ÐµÑ€Ð½ÑƒÑ‚ÑŒ;)
 
 -->
 	
 ## Summary ##
 
-It would be impossible for me to list here all the quirky markup patterns and practices I’ve come across, but these are some of the most frequently seen. What other common markup mistakes have you spotted around the web? Which areas of HTML5 require further clarification? We’d love to help get the wording or examples in the spec changed to make them a little more specific, so leave your thoughts below, and don’t forget to escape your HTML!
+It would be impossible for me to list here all the quirky markup patterns and practices Iâ€™ve come across, but these are some of the most frequently seen. What other common markup mistakes have you spotted around the web? Which areas of HTML5 require further clarification? Weâ€™d love to help get the wording or examples in the spec changed to make them a little more specific, so leave your thoughts below, and donâ€™t forget to escape your HTML!
 
 Thanks to Ian Devlin, Derek Johnson, Tady Walsh, the HTML5 Gallery curators, and the HTML5 Doctors for their input to this article.
 
 <!--
-quirky (èçâîðîòëèâûé)
-come across (íàòîëêíóòüñÿ; ïîâñòðå÷àòüñÿ; ñëó÷àéíî âñòðåòèòüñÿ;)
-to spot (îáíàðóæèòü;çàìåòèòü;)
-clarification (ïðîÿñíåíèå; âûÿñíåíèå; ðàçúÿñíåíèå;)
-to escape (ñïàñàòüñÿ;)
+quirky (Ð¸Ð·Ð²Ð¾Ñ€Ð¾Ñ‚Ð»Ð¸Ð²Ñ‹Ð¹)
+come across (Ð½Ð°Ñ‚Ð¾Ð»ÐºÐ½ÑƒÑ‚ÑŒÑÑ; Ð¿Ð¾Ð²ÑÑ‚Ñ€ÐµÑ‡Ð°Ñ‚ÑŒÑÑ; ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ð¾ Ð²ÑÑ‚Ñ€ÐµÑ‚Ð¸Ñ‚ÑŒÑÑ;)
+to spot (Ð¾Ð±Ð½Ð°Ñ€ÑƒÐ¶Ð¸Ñ‚ÑŒ;Ð·Ð°Ð¼ÐµÑ‚Ð¸Ñ‚ÑŒ;)
+clarification (Ð¿Ñ€Ð¾ÑÑÐ½ÐµÐ½Ð¸Ðµ; Ð²Ñ‹ÑÑÐ½ÐµÐ½Ð¸Ðµ; Ñ€Ð°Ð·ÑŠÑÑÐ½ÐµÐ½Ð¸Ðµ;)
+to escape (ÑÐ¿Ð°ÑÐ°Ñ‚ÑŒÑÑ;)
 -->
 
 
