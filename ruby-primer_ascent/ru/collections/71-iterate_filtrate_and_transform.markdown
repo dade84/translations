@@ -3,16 +3,21 @@
 ## Move and change ##
 
 We've already used each in a bunch of places, so we'll start off with an each variant called each_with_index. With this you can define blocks with two arguments, the element (just like each) and its index.
-Example Code:
+	<!--
+	  start off (начинаться;)
+	  just like (почти такой же как; совсем как; прямо как;)
+	-->
 
-[4, 8, 15, 16, 23, 42].each_with_index { |e, i| puts "#{e} -- #{i}" }
+	[4, 8, 15, 16, 23, 42].each_with_index { |e, i| puts "#{e} -- #{i}" }
  
-
-[reset]
 We know about the Enumerable module and its purpose. Any class that mixes in Enumerable has access to all its methods. Hash in Ruby, just like Array, also includes Enumerable.
 
 The first argument in the each_with_index block for hashes would contain the key-value pair as an array, the second being the pair's position in the hash. Hashes in Ruby are funny that way - iterating over a Hash almost always gives you the key and value in an Array.
-
+	
+	<!--
+	  funny (странный; непонятный;)
+	  iterate over (перебирать;)
+	-->
 
 	{:locke => "4", :hugo => "8"}.each_with_index do |kv, i| 
 	  puts "#{kv} -- #{i}"
@@ -21,10 +26,18 @@ The first argument in the each_with_index block for hashes would contain the key
 map is another Enumerable method that is similar to each. It goes through each element in your Array or Hash and evaluates the block for that element and appends the value in an array that it returns.
 
 In other words, each is used for simple iteration, map for transformation. In the example below, we will transform the original array, producing a new one that contains all the values of the original incremented by 1.
-
+	
+	<!--
+	  similar (похожий; подобный; схожий;)
+	  to evaluate (вычислять;)
+	  to append (добавлять в конец;)
+	  iteration (повторение;)
+	  transformation (изменение; преобразование;)
+	  incremented (увеличенный;)
+	-->
 
 	def map_value
-		[3, 7, 14, 15, 22, 41].map { |e| e + 1 }
+	  [3, 7, 14, 15, 22, 41].map { |e| e + 1 }
 	end
 
 	p map_value
@@ -34,23 +47,54 @@ map returns the resultant array. each returns the original array.
 The purpose of map is to return this resultant array created when the operations are applied to the original data structure -- which obviously makes its return value useful. each is more of a generic iterator that is often used to puts things out. Because of the simple nature of each, it is also used as a custom iterator builder.
 
 Exploit the fact that map always returns an array: write a method hash_keys that accepts a hash and maps over it to return all the keys in a linear Array.
-
+	
+	<!--
+	  resultant (результирующий; итоговый; вытекающий;)
+	  obviously (явно; ясно; очевидно;)
+	  generic (универсальный;общий; типичный;)
+	  put out (вывести;)
+	  iterator (итератор; периодизатор; программа организации циклов;)
+	  because (для; из-за; )
+	  nature (сущность;)
+	  custom (пользовательский;)
+	  builder (средство построения;)
+	  exploit the fact (исользуя тот факт;)
+	  linear (линейный;)
+	  map (преобразовывать;)
+	  map over (установить соответствие;)
+	-->
+	
 	def hash_keys(hash)
+	  hash.map {|key,value| key}
 	end
 
 inject is a powerful enumerator that can do iteration (walking over all items in a collection), accumulation and transformation all at once. Here's an example using an Array.
+
+	<!--
+	  accumulation (суммирование;)
+	  all at once (все сразу;)
+	  iterated (повторный;)
+	-->	
 
 	[4, 8, 15, 16, 23, 42].inject(0) do |accumulator, iterated|
 	  accumulator += iterated
 	  accumulator
 	end
 
+
 There are bunch of things going on here.
-The 0 argument to the inject(0) method is an optional default value.
-This optional default value is assigned to the first argument accumulator in the block. If there is no value, then accumulator starts with the first value of the array. This is done only once on the first iteration.
-inject is also an iterator, the second argument iterated being the element it's currently on.
-accumulator here, is basically incrementing itself by adding the value of iterate to itself.
+* The 0 argument to the inject(0) method is an optional default value.
+* This optional default value is assigned to the first argument accumulator in the block. If there is no value, then accumulator starts with the first value of the array. This is done only once on the first iteration.
+* inject is also an iterator, the second argument iterated being the element it's currently on.
+* accumulator here, is basically incrementing itself by adding the value of iterate to itself.
+
 If you find this hard to wrap your head around, then here's a more broken down version of what inject essentially does, using each. It takes the Array and an optional default value, and assigns that default value to a local variable accumulator. It assigns the first element of the array if there is no default value, i.e. it's nil. It then loops through the array and increments the local variable accumulator and finally returns the new value of accumulator.
+	
+	<!--
+	  optional (дополнительный; необязательный;)
+	  wrap head around (разобраться; сообразить; понять;)
+	  essentially (по существу; существенно; в основном;)
+	-->
 
 	def custom_inject(array, default = nil)
 	  accumulator = default || array[0]
@@ -65,6 +109,10 @@ If you find this hard to wrap your head around, then here's a more broken down v
 	p custom_inject([4, 8, 15, 16, 23, 42], 0)
 
 inject greatly simplifies the amount of code you write when you're building values and iterating at the same time. Building a Hash or an Array is a pretty common use case.
+
+	<!--
+	  simplify (упрощать; сокращать;)
+	-->
 
 	[4, 8, 15, 16, 23, 42].inject({}) { |a, i| a.update(i => i) }
 
