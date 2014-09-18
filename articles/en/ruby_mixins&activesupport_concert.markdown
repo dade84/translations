@@ -4,6 +4,16 @@ A few people have asked: what is the dealio with ActiveSupport::Concern? My answ
 
 Here we goЕ!
 
+	<!--
+	  a few (несколько;)
+	  deal with (иметь дело с;)
+	  encapsulate (инкапсулировать;заключать; кратко излагать; воплощать;)
+	  intend (предназначить; предназачать;)
+	  here we go (поехали)
+	  ancestor (предок;)
+	  that is (то есть;)
+	-->
+
 ## First, the Ruby object model: ##
 * http://blog.jcoglan.com/2013/05/08/how-ruby-method-dispatch-works/
 * http://www.ruby-doc.org/core-1.9.3/Class.html
@@ -210,6 +220,61 @@ Let's say MyModA wanted to do something special when included into the target cl
 	  end
 	end
 
+When MyModA is included in MyModB, the code in the included() hook will run, and if has_many() is not defined on MyModB things will break:
 
+	irb :050 > module MyModB
+	irb :051?>   include MyModA
+	irb :052?> end
+	NoMethodError: undefined method 'has_many' for MyModB:Module
+	  from (irb):46:in 'included'
+	  from (irb):45:in 'class_eval'
+	  from (irb):45:in 'included'
+	  from (irb):51:in 'include'
+
+ActiveSupport::Concern skirts around this issue by delaying all the included hooks from running until a module is included into a non-ActiveSupport::Concern. Redefining the above using ActiveSupport::Concern:
+
+	module MyModA
+	  extend ActiveSupport::Concern
+
+	  included do
+	    has_many :squirrels
+	  end
+	end
+
+	module MyModB
+	  extend ActiveSupport::Concern
+	  include MyModA
+	end
+
+	class MyClass
+	  def self.has_many(*args)
+	    puts "has_many(#{args.inspect}) called"
+	  end
+
+	  include MyModB
+	# irb>
+	# has_many([:squirrels]) called
+	end
+
+	# irb> MyClass.ancestors
+	# => [MyClass, MyModB, MyModA, Object, Kernel, BasicObject]
+	# irb> MyClass.singleton_class.ancestors
+	# => [Class, Module, Object, Kernel, BasicObject]
+
+	Great? Great.
+
+	But why is ActiveSupport::Concern called "Concern"? The name Concern comes from AOP (http://en.wikipedia.org/wiki/Aspect-oriented_programming). Concerns in AOP encapsulate a "cohesive area of functionality". Mixins act as Concerns when they provide cohesive chunks of functionality to the targe class. Turns out using mixins in this fashion is a very common practice.
+
+	ActiveSupport::Concern provides the mechanics to encapsulate a cohesive chunk of functionality into a mixin that can extend the behavior of the target class by annotating the class' ancestor chain, annotating the class' singleton class' ancestor chain, and directly manipulating the target class through the included() hook.
+
+	So...
+
+	Is every mixin a Concern? No. Is every ActiveSupport::Concern a Concern? No.
+
+	While I've used ActiveSupport::Concern to build actual Concerns, I've used it to avoid writing out the boilerplate code mentioned above. If I just need to share some instance methods and nothing else, then I'll use a bare module.
+
+	Modules, mixins and ActiveSupport::Concern are just tools in your toolbox to accomplish the task at hand. It's up to you to know how the tools work and when to use them.
+
+	I hope that helps somebody.
 	
 
