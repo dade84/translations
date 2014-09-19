@@ -6,6 +6,19 @@ Because I've not actually read the source, this will explain what happens logica
 
 Right, let's start at the start. You can build almost all of Ruby's object system out of Module. Think of a module as a bag of methods. For example, module A contains methods foo and bar.
 
+	<!--
+	  ask around (поспрашивать)
+	  method dispatch (назначение методов)
+	  the other day (на днях; недавно; не так давно;)
+	  lookup (просмотр)
+	  reimplement (переопределять;)
+	  once (один раз;)
+	  gist (сущность; суть;)
+	  actually (фактические; на самом деле; в действительности;)
+	  at the start (сначала; с самого начала;)
+	  out of (из;)
+	-->
+
 	+----------+
 	| module A |
 	+----------+
@@ -62,13 +75,13 @@ Now, a module can have many parents, and they form a tree. Take these modules:
 
 These form a tree like this, following their include relationships:
 
-	+-----------+                          +------------+
-	| module A  |                          | module B   |
-	+-----------+                          +------------+
-	| def foo   |                          | def hello  |
-	| def bar   |                          | def bye    |
-	+-----------+                          +------------+
-	      ^	                                      ^
+	                                       +------------+
+	                                       | module B   |
+	                                       +------------+
+	                                       | def hello  |
+	                                       | def bye    |
+	                                       +------------+
+	      	                                      ^
 	+-----------+                          +------------+
 	| module A  |                          | module C   |
 	+-----------+                          +------------+
@@ -93,6 +106,19 @@ When we want to dispatch a method, we look at each one of a modules' ancestors i
 
 We can use Ruby's reflection capabilities to find out which method will be used when we invoke certain names:
 
+	<!--
+	  rather than (в отличие от;)
+	  dispatch a method (выполнить метод;)
+	  perform (исполнять; выполнять;)
+	  ancestry (происхождение; предки;)
+	  resolve (разрешать(сомнения и т.п.);)
+	  whichever (тот (из нескольких), который;)
+	  reflection (отражение; рефлексия;) Рефлексия - система, предоставляющая выполняемому коду, информацию о нем самом.
+	  find out (выяснить; найти; разузнать;)
+	  invoke (вызывать;инициировать;)
+	  certain (определенный; конкретный;)
+	-->
+
 	>> D.instance_method(:foo)
 	=> #<UnboundMethod: D(A)#foo>
 
@@ -105,6 +131,11 @@ We can use Ruby's reflection capabilities to find out which method will be used 
 An UnboundMethod is just an object representing a method from a module, before it's been bound to an object. When you see D(A)#foo, it means D has inherited the #foo method from A. If you dispatch #foo to an object that includes D, you'll get the method defined in A.
 
 Speaking of objects, why haven't we made any yet? What good is a bag of methods will no objects to invoke them on? Well, that's where Class comes in. In Ruby, Class is a subclass of Module, which sounds weird but just remember they're data structures that hold methods. A Class is like a Module, in that it's a thing that stores methods and can include other modules, but it also has some additional capabilities, the first of which is that it can create objects.
+
+	<!--
+	  weird (запутанно;)
+	  additional (дополнительный;)  
+	-->
 
 	class K
 	  include D
@@ -121,6 +152,12 @@ This shows that when we invoke k.start, we'll get the #start method from module 
 
 So it looks like we dispatch method calls by finding the class the object belongs to, then looking through that class's ancestors until we find a matching method. Well, that's almost true, but Ruby has another trick up its sleeve: singleton methods. You can add new methods to any object, and only that object, without adding them to a class. See:
 
+	<!--
+	  since (так как;)
+	  trick up its sleeve (туз в рукаве; заготовка;)
+
+	-->
+
 	def k.mart ; end
 
 	>> k.method(:mart)
@@ -135,7 +172,13 @@ We can add them to modules too, since modules are just another kind of object:
 
 When a Method's name has a dot(.) instead of a hash(#) in it, it means the method exists only on that object instead of being contained in a module. But we said earlier that modules are the thing Ruby uses to store methods; plain old object don't have this power. So where are singleton methods stored?
 
-Every object in Ruby(and remember, modules and classes are objects too) has what's called a metaclass, also known as a singleton class, eigenclass or virtual clas. The job of this class is simply to store the objects singleton methods; by default it contains no methods and has the object's class as its only parent. So for out object k, its full ancestor tree looks like this:
+Every object in Ruby(and remember, modules and classes are objects too) has what's called a metaclass, also known as a singleton class, eigenclass or virtual class. The job of this class is simply to store the objects singleton methods; by default it contains no methods and has the object's class as its only parent. So for out object k, its full ancestor tree looks like this:
+
+	<!--
+	  plain (простой;)
+	  plain old (старый добрый;)
+	  only (единственный;)
+	-->
 
 	+-----------+                          +------------+
 	| module A  |                          | module B   |
@@ -176,20 +219,39 @@ We can ask Ruby for an object's metaclass, and reflect on it just like any other
 	>> K.instance_method(:mart)
 	NameError: undefined method 'mart' for class 'K'
 
-One gotcha to look out for is that metaclasses don't appear in their own #ancestors lists, but you should thing of them being in their for the purposes of finding methods.
+One gotcha to look out for is that metaclasses don't appear in their own #ancestors lists, but you should think of them being in their for the purposes of finding methods.
 
-When we invoke methods on k, it asks its metaclass to find the method, and this uses the metaclass's ancestry to locate the required method. Singleton methods live in the metaclass itself, o they are preferred over methods inherited from the objects's class or any of its ancestors.
+	<!--
+	  ask for (просить; требовать;)
+	  attach (прикреплять; присоединять;)
+	-->
+
+When we invoke methods on k, it asks its metaclass to find the method, and this uses the metaclass's ancestry to locate the required method. Singleton methods live in the metaclass itself, so they are preferred over methods inherited from the objects's class or any of its ancestors.
 
 Now we come to the second special property of classes, beyond their ability to create objects. Classes have a special form of inheritance called 'subclassing'. Every class has one and only one superclass, the default being Object. In terms of method lookup, you can think of a superclass as just being the class's first parent module:
+
+	<!--
+	  locate (определить; определить местонахождение;)
+	  prefer (предпочитать; представлять;)
+	  beyond (если не считать;)
+	-->
 
 	class Foo < Bar               class Foo
 	  include Extras      =~        include Bar
 	end                             include Extras
 	                              end
 
-So Foo.ancestors gives us [Foo, Extras, Bar] in both cases, and this determines method lookup order as usual. (Actually it gives us [Foo, Extras, Bar, Object, Kernel, BasicObject] but we'll get to those letter modules in a minute.) Note that Ruby violates the Liskov substitution principle by not allowing classes to be given to include; only modules can be used this way, not their subtypes. The above snippet simply expresses what subclassing means for method lookup and the code on the fight will not run if Bar is a Class.
+So Foo.ancestors gives us [Foo, Extras, Bar] in both cases, and this determines method lookup order as usual. (Actually it gives us [Foo, Extras, Bar, Object, Kernel, BasicObject] but we'll get to those letter modules in a minute.) Note that Ruby violates the Liskov substitution principle by not allowing classes to be given to include; only modules can be used this way, not their subtypes. The above snippet simply expresses what subclassing means for method lookup and the code on the right will not run if Bar is a Class.
 
 If subclassing is the same as including, why do we need it at all? Well, it does one extra thing: class inherit their superclass's singleton methods, but not those of included modules.
+
+	<!--
+	  letter ()
+	  violate (нарушать (клятву, закон); насиловать; изнасиловать;)
+	  sustitution (замещение;)
+	  snippet (фрагмент кода;)
+	  express (выражать;высказать;)
+	-->
 
 	module Z
 	  def self.z ; :z ; end
