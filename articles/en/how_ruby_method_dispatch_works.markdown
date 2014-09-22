@@ -8,7 +8,7 @@ Right, let's start at the start. You can build almost all of Ruby's object syste
 
 	<!--
 	  ask around (поспрашивать)
-	  method dispatch (назначение методов)
+	  method dispatch (назначение методов; диспетчеризация методов)
 	  the other day (на днях; недавно; не так давно;)
 	  lookup (просмотр)
 	  reimplement (переопределять;)
@@ -107,6 +107,7 @@ When we want to dispatch a method, we look at each one of a modules' ancestors i
 We can use Ruby's reflection capabilities to find out which method will be used when we invoke certain names:
 
 	<!--
+	  concept (понятие; идея; методология; подход;)
 	  rather than (в отличие от;)
 	  dispatch a method (выполнить метод;)
 	  perform (исполнять; выполнять;)
@@ -292,6 +293,11 @@ We can model this in terms of parent relationships by saying that the subclass's
 
 And indeed if we reflect on Foo we see that its #bar method originates from Bar's metaclass.
 
+	<!--
+	  relationship (отношение;)
+	  originate (создавать; создать;исходить; происходить; возникать;)	
+	-->	
+
 	>> Foo.method(:bar)
 	=> #<Method: Foo(Bar).bar>
 
@@ -302,6 +308,9 @@ We've seen how inheritance and method lookup in Ruby can be modelled as a tree o
 
 The first is the Object#extend method. Calling object.extend(M) makes the methods in module M available on object. It doesn't copy the methods, it just adds M as a parent of the object's metaclass. If object has class Thing, we get this relationship:
 
+	<!--
+	  piggy-back (опираясь на;)
+	-->
 
 	                 +-------+      +-----+
 	                 | Thing |      |  M  |
@@ -316,6 +325,13 @@ The first is the Object#extend method. Calling object.extend(M) makes the method
 So extending an object with a module is just the same thing as including that module in the object's metaclass. (Actually there are some differences but they're not relevant to the present discussion.) Given this tree, we see that when we invoke methods on object, the lookup process will prefer methods contained in M to those defined in Thing, and will prefer methods defined directly in the object's metaclass over both of them.
 
 This context is important: we cannot say methods in M take precedence over Thing in general, only when we're talking about method calls to object. The method receiver's ancestry is what's important, and this shows up when we investigate how super works. Take this set of modules:
+
+	<!--
+	  relevant (уместный; относящийся к делу; важный;имеющий отношение;)	
+	  take precedence over (иметь приоритет над; быть более важным; превосходить;)
+	  in general (вообще; как правило;)
+	  investigate (расследовать; получать сведения; исследовать; изучать; разузнавать;)
+	-->
 
 	module X
 	  def call ; [:x] ; end
@@ -332,7 +348,7 @@ This context is important: we cannot say methods in M take precedence over Thing
 
 The ancestry of Test goes [Test, Y, X], so clearly if we call Test.new.call we will invoke the #call method from Y. But what happens when Y calls super? Y has no ancestors of its own, so there's nowhere to dispatch the method to, right?
 
-Nope. When we encounter a super call, what's important is the ancestry of the object we made the original method call on (the 'reveiver'), and nothing else. You can imageing method lookup as finding all the implementations of the given methond in the ancestor list for the reveiver's metaclass:
+Nope. When we encounter a super call, what's important is the ancestry of the object we made the original method call on (the 'reсeiver'), and nothing else. You can imageing method lookup as finding all the implementations of the given method in the ancestor list for the reсeiver's metaclass:
 
 	>> t = Test.new
 
@@ -345,7 +361,16 @@ To dispatch the method, we invoke the first method in this list. If that method 
 
 Sure enough, in our case Test.new.call returns[:x, :y]
 
-We're almost done, but I promised I'd explain what Object, Kernel and BasicObject are. BasicObject is the root class of the whole system: it's a Class with no superclass. Object inherits from BasicObject, and is the default supreclass of all user-defined classed. The difference between the two is that BasicObject has almost no methods defined in it, while Object has loads: core Ruby methods like #==, #__send__, #dup, #inspect, #instance_eval, #is_a?, #method, #respond_to?, and #to_s. Well, actually it doesn't have all those methods itself, it gets them from Kernel. Kernel is just the module with all Ruby's core object methods in it. So when we map out Ruby's core object system we get the following:
+We're almost done, but I promised I'd explain what Object, Kernel and BasicObject are. BasicObject is the root class of the whole system: it's a Class with no superclass. Object inherits from BasicObject, and is the default supreclass of all user-defined classes. The difference between the two is that BasicObject has almost no methods defined in it, while Object has loads: core Ruby methods like #==, #__send__, #dup, #inspect, #instance_eval, #is_a?, #method, #respond_to?, and #to_s. Well, actually it doesn't have all those methods itself, it gets them from Kernel. Kernel is just the module with all Ruby's core object methods in it. So when we map out Ruby's core object system we get the following:
+
+	<!--
+	  nowhere (нигде; никуда;)
+	  nope (нет;)
+	  encounter (встретить; встретиться; наталкиваться; сталкивать;)
+	  run out of (закончиться;израсходуются;)
+	  sure enough (будьте уверены;)
+	  map out (составлять план;)
+	-->
 
 	    +---------------+                                                           +------------+
 	    |               |                                                           |            |
@@ -382,5 +407,9 @@ This shows the core modules and classes in Ruby: BasicObject, Kernel, Object, Mo
 * Methods are found via a depth-first right-to-left search of the receiver's metaclass's ancestry
 
 No, I don't know how refinements work. No-one does.
+
+	<!--
+	  refinement (оптимизация; отладка; модернизация;)
+	-->
 
 
